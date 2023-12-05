@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicativo de Anotações</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="container-anotacoes">
+    </div><!--container-anotacoes-->
+
+
+    <div class="btn-add">+</div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('.btn-add').click(function(){
+                var el = '<div class="anotacao-single"><textarea placeholder="Sua nova anotação..."></textarea></div>';
+                $('.container-anotacoes').append(el);
+
+                var textArea = $('.anotacao-single').last().find('textarea');
+
+                var date = new Date();
+                var hora = date.getHours();
+                var minutos = date.getUTCMinutes();
+
+                var finalTime = hora+":"+minutos;
+                textArea.html("Nova Anotação em: "+finalTime);
+            });
+        });
+    </script>
+</body>
+</html>
